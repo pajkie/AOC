@@ -1,27 +1,3 @@
-"""
-example input:
-A Z
-C X
-A Z
-A Z
-C Y
-C Y
-"""
-
-# X = 1 #rock
-# Y = 2 #paper
-# Z = 3 #scissor
-
-# A = 'rock'
-# B = 'paper'
-# C = 'scissor'
-
-
-won = 6
-draw = 3
-lost = 0
-
-
 score = {
     'X': 1,
     'Y': 2,
@@ -47,9 +23,17 @@ draw = {
     'C': 'Z',
 }
 
-with open('input.txt') as f:
+with open('day2\input.txt') as f:
     data = f.read()
-
-    for line in data:
+    match = 0
+    for line in data.splitlines():
         at, df = line.split(' ')
-        print(at)
+
+        match += score[df]
+        if wins[at] == df:
+            match += 6
+        elif losses[at] == df:
+            match += 0
+        else:
+            match += 3
+    print(match)

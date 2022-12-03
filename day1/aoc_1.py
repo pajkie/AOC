@@ -1,5 +1,5 @@
 #d1_p1
-with open('input.txt') as f:
+with open('day1\input.txt') as f:
     data = f.read()
 
     cal = 0
